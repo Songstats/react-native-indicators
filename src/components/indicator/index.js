@@ -174,9 +174,7 @@ export default class Indicator extends PureComponent {
 
   render() {
     let { hideAnimation } = this.state;
-    let { count, hidesWhenStopped, ...props } = this.props;
-    let { key } = props;
-    delete props.key;
+    let { count, hidesWhenStopped, key, ...props } = this.props;
 
     if (hidesWhenStopped) {
       props.style = []
