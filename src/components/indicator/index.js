@@ -175,6 +175,8 @@ export default class Indicator extends PureComponent {
   render() {
     let { hideAnimation } = this.state;
     let { count, hidesWhenStopped, ...props } = this.props;
+    let { key } = props;
+    delete props.key;
 
     if (hidesWhenStopped) {
       props.style = []
@@ -182,7 +184,7 @@ export default class Indicator extends PureComponent {
     }
 
     return (
-      <Animated.View {...props}>
+      <Animated.View key={key} {...props}>
         {Array.from(new Array(count), this.renderComponent, this)}
       </Animated.View>
     );
